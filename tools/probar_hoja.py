@@ -49,7 +49,7 @@ with sync_playwright() as p:
     with pg.expect_download() as d: pg.click("#b-csv")
     ruta = d.value.path(); txt = open(ruta, encoding="utf-8-sig").read()
     ver("El CSV trae el participante, el SUS 95 y el error", "U1" in txt and '"95"' in txt and "Dudó entre los dos botones" in txt, txt[-300:])
-    ver("El CSV tiene encabezado y 1 fila", len(txt.strip().split("\r\n")) == 2)
+    ver("El CSV tiene encabezado y 1 fila", len(txt.strip().splitlines()) == 2)
 
     pg.goto(URL); pg.keyboard.press("Tab")
     ver("El primer Tab cae en el skip link", pg.evaluate("document.activeElement.className") == "saltar")

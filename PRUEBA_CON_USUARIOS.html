@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoja de prueba con usuario · MercaTab PA3</title>
+<style>
+  :root { --crema: #F5ECE8; --marron: #7B4A2D; --marron-osc: #5A3420; --tinta: #2B2118; --tinta-2: #5C4A3F; --linea: #8C7468; --rojo: #B3261E; --ok: #1F6B3B; --foco: #0B3D91; --durazno: #F4A27A; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--crema); color: var(--tinta); font: 400 1rem/1.5 'Atkinson Hyperlegible', 'Segoe UI', Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 16px 16px 64px; }
+  h1 { font-size: 1.5rem; margin: 8px 0; } h2 { font-size: 1.25rem; color: var(--marron); margin: 0 0 8px; }
+  section { background: #fff; border: 1px solid #E3D3CA; border-radius: 14px; padding: 16px; margin-bottom: 16px; }
+  :focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
+  label, legend { display: block; font-weight: 700; margin-bottom: 4px; padding: 0; }
+  input[type=text], input[type=number], select, textarea { width: 100%; min-height: 48px; padding: 8px 12px; font: inherit; color: var(--tinta); background: #fff; border: 2px solid var(--linea); border-radius: 10px; }
+  textarea { min-height: 96px; resize: vertical; }
+  .campo { margin-bottom: 12px; } .ayuda { margin: 0 0 6px; font-size: .9375rem; color: var(--tinta-2); }
+  .dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  button, .boton { min-height: 48px; min-width: 44px; padding: 0 20px; font: 700 1rem/1.2 inherit; font-family: inherit; color: #fff; background: var(--marron); border: 2px solid var(--marron); border-radius: 10px; cursor: pointer; }
+  button:hover { background: var(--marron-osc); border-color: var(--marron-osc); }
+  button.sec { background: transparent; color: var(--marron); } button.peligro { background: var(--rojo); border-color: var(--rojo); }
+  .filas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .opcion { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 400; }
+  .opcion input { width: 24px; height: 24px; accent-color: var(--marron); margin: 0; }
+  fieldset { border: 0; margin: 0 0 12px; padding: 0; min-width: 0; }
+  .reloj { font-size: 2.5rem; font-weight: 700; color: var(--marron); margin: 4px 0 8px; }
+  .error-fila { border: 1px solid #E3D3CA; border-radius: 10px; padding: 12px; margin-bottom: 12px; display: grid; gap: 8px; grid-template-columns: 90px 1fr; }
+  .error-fila .ancho { grid-column: 1 / -1; }
+  .sus-p { border-top: 1px solid #E3D3CA; padding: 10px 0; } .sus-p:first-of-type { border-top: 0; }
+  .escala { display: flex; gap: 6px; flex-wrap: wrap; } .escala label { display: flex; align-items: center; justify-content: center; width: 52px; min-height: 48px; border: 2px solid var(--linea); border-radius: 10px; margin: 0; cursor: pointer; }
+  .escala input { position: absolute; opacity: 0; } .escala input:checked + span { font-weight: 700; }
+  .escala label:has(input:checked) { background: var(--durazno); border-color: var(--marron); }
+  .escala label:has(input:focus-visible) { outline: 3px solid var(--foco); outline-offset: 2px; }
+  .marcador { font-size: 2rem; font-weight: 700; color: var(--marron); } .estado { font-weight: 700; min-height: 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: .9375rem; } th, td { padding: 6px 4px; text-align: left; border-bottom: 1px solid #E3D3CA; }
+  .saltar { position: absolute; left: 16px; top: -100px; background: var(--tinta); color: #fff; padding: 12px 20px; border-radius: 10px; font-weight: 700; } .saltar:focus { top: 8px; }
+  @media print { button, .no-imprimir, .saltar { display: none !important; } body { background: #fff; } }
+</style>
+</head>
+<body>
+<a class="saltar" href="#principal">Ir al contenido principal</a>
+<main id="principal" tabindex="-1">
+  <h1>Hoja de prueba con usuario · MercaTab (PA3)</h1>
+  <p class="ayuda">Una hoja por participante. Se guarda sola en este navegador; al final descarga todo en CSV. No se envía nada a ningún servidor.</p>
+
+  <form id="f" novalidate>
+  <section aria-labelledby="h-datos">
+    <h2 id="h-datos">A. Datos del participante</h2>
+    <div class="dos">
+      <div class="campo"><label for="codigo">Código (U1, U2…)</label><input id="codigo" name="codigo" type="text" autocomplete="off"></div>
+      <div class="campo"><label for="edad">Edad</label><input id="edad" name="edad" type="number" min="0" autocomplete="off"></div>
+    </div>
+    <div class="campo"><label for="ocupacion">Ocupación y relación con el rubro de abarrotes</label><input id="ocupacion" name="ocupacion" type="text" autocomplete="off"></div>
+    <div class="dos">
+      <div class="campo"><label for="perfil">Perfil del PA1 al que se parece</label>
+        <select id="perfil" name="perfil" autocomplete="off"><option value="">Elegir</option><option>Don Teo</option><option>Jimena</option><option>Otro</option></select></div>
+      <div class="campo"><label for="dispositivo">Dispositivo y navegador</label><input id="dispositivo" name="dispositivo" type="text" autocomplete="off"></div>
+    </div>
+    <fieldset><legend>Contexto de accesibilidad</legend>
+      <label class="opcion"><input type="checkbox" name="ctx_una_mano"> Usa una sola mano</label>
+      <label class="opcion"><input type="checkbox" name="ctx_teclado"> Solo Tab y Enter</label>
+      <label class="opcion"><input type="checkbox" name="ctx_zoom"> Zoom al 200 %</label>
+      <label class="opcion"><input type="checkbox" name="ctx_lector"> Lector de pantalla</label>
+      <label class="opcion"><input type="checkbox" name="ctx_ninguno"> Ninguno</label>
+    </fieldset>
+  </section>
+
+  <section aria-labelledby="h-consent">
+    <h2 id="h-consent">B. Bienvenida y consentimiento (2 min)</h2>
+    <p>Decir: «Estamos probando el sistema, no a ti. No hay respuestas buenas o malas. Mientras lo uses, di en voz alta lo que piensas. No te vamos a ayudar durante la tarea, pero puedes dejar la prueba cuando quieras.»</p>
+    <p>Consentimiento: «Voy a participar en una prueba de un sistema para un trabajo del curso Interacción Hombre-Máquina de la UTP. Entiendo que se evalúa el sistema y no mi desempeño, que puedo dejar la prueba cuando quiera y que la sesión se graba solo para el análisis del trabajo.»</p>
+    <label class="opcion"><input type="checkbox" name="consent_verbal"> Consentimiento verbal grabado</label>
+    <label class="opcion"><input type="checkbox" name="consent_escrito"> Consentimiento escrito firmado</label>
+  </section>
+
+  <section aria-labelledby="h-tarea">
+    <h2 id="h-tarea">C. Tarea principal (5 a 10 min)</h2>
+    <p>Decir: «Tienes un puesto de abarrotes. Un cliente compró productos y necesitas registrar la venta y luego ver tu ganancia. Hazlo sin ayuda y comenta lo que piensas.» <strong>No ayudar.</strong></p>
+    <p class="reloj" id="reloj" role="timer" aria-label="Tiempo de la tarea">00:00.0</p>
+    <div class="filas no-imprimir">
+      <button type="button" id="b-inicio">Iniciar tarea</button>
+      <button type="button" id="b-fin" class="sec" disabled>Detener tarea</button>
+      <button type="button" id="b-cero" class="sec">Poner en cero</button>
+    </div>
+    <p class="estado" id="estado-reloj" role="status"></p>
+    <fieldset><legend>Pasos completados sin ayuda (GOMS)</legend>
+      <label class="opcion"><input type="checkbox" class="paso" name="paso1"> 1. Registrar venta</label>
+      <label class="opcion"><input type="checkbox" class="paso" name="paso2"> 2. Seleccionar producto</label>
+      <label class="opcion"><input type="checkbox" class="paso" name="paso3"> 3. Ingresar cantidad</label>
+      <label class="opcion"><input type="checkbox" class="paso" name="paso4"> 4. Confirmar (Guardar)</label>
+      <label class="opcion"><input type="checkbox" class="paso" name="paso5"> 5. Ver el resultado (ganancia)</label>
+    </fieldset>
+    <p>Efectividad: <span class="marcador" id="efectividad">0 %</span></p>
+
+    <h3>Errores y dudas observados</h3>
+    <p class="ayuda">Anota lo que realmente pasó. El minuto se llena con el reloj. Tipos: lapsus (toque equivocado), equivocación (creyó que algo servía para otra cosa), basado en reglas (usó algo de otras apps que aquí no vale), de conocimiento (no supo qué hacer).</p>
+    <div id="errores"></div>
+    <button type="button" id="b-error" class="sec no-imprimir">+ Anotar un error</button>
+  </section>
+
+  <section aria-labelledby="h-expl">
+    <h2 id="h-expl">D. Exploración libre (3 a 5 min)</h2>
+    <p>Decir: «Ahora navega como quieras.» Observar qué toca, qué ignora y dónde se detiene.</p>
+    <div class="campo"><label for="exploracion">Notas del observador</label><textarea id="exploracion" name="exploracion"></textarea></div>
+  </section>
+
+  <section aria-labelledby="h-ent">
+    <h2 id="h-ent">E. Entrevista (5 min)</h2>
+    <div class="campo"><label for="ent1">1. ¿Qué fue lo más difícil?</label><textarea id="ent1" name="ent1"></textarea></div>
+    <div class="campo"><label for="ent2">2. ¿Qué cambiarías?</label><textarea id="ent2" name="ent2"></textarea></div>
+    <div class="campo"><label for="ent3">3. ¿Confiarías en este sistema para tu trabajo real?</label><textarea id="ent3" name="ent3"></textarea></div>
+  </section>
+
+  <section aria-labelledby="h-sus">
+    <h2 id="h-sus">F. Cuestionario SUS (2 min)</h2>
+    <p class="ayuda">1 = totalmente en desacuerdo, 5 = totalmente de acuerdo. Que el participante responda por sí mismo.</p>
+    <div id="sus"></div>
+    <p>Puntaje SUS: <span class="marcador" id="sus-puntaje">—</span> <span id="sus-texto" class="estado" role="status"></span></p>
+  </section>
+  </form>
+
+  <section aria-labelledby="h-guardar">
+    <h2 id="h-guardar">G. Guardar y exportar</h2>
+    <div class="filas no-imprimir">
+      <button type="button" id="b-guardar">Guardar participante</button>
+      <button type="button" id="b-nuevo" class="sec">Nuevo participante</button>
+      <button type="button" id="b-csv" class="sec">Descargar CSV de todos</button>
+      <button type="button" id="b-imprimir" class="sec">Imprimir esta hoja</button>
+      <button type="button" id="b-borrar" class="peligro">Borrar todos los guardados</button>
+    </div>
+    <p class="estado" id="estado-guardar" role="status"></p>
+    <table><caption class="ayuda" style="text-align:left">Participantes guardados en este navegador</caption>
+      <thead><tr><th scope="col">Código</th><th scope="col">Efectividad</th><th scope="col">Tiempo (s)</th><th scope="col">Errores</th><th scope="col">SUS</th></tr></thead>
+      <tbody id="guardados"></tbody></table>
+  </section>
+</main>
+
+<script>
+const SUS_Q = ['Creo que me gustaría usar esta app con frecuencia.', 'Encontré que la app es innecesariamente compleja.', 'Pensé que era fácil de usar.',
+  'Creo que necesitaría apoyo de alguien técnico para poder usar la app.', 'Las funciones de la app estaban bien integradas.', 'Pensé que había demasiada inconsistencia en esta app.',
+  'Imagino que la mayoría de personas aprendería a usar esta app rápidamente.', 'La app me pareció muy difícil de usar.', 'Me sentí muy seguro usando la app.',
+  'Necesité aprender muchas cosas antes de poder usar el sistema.'];
+const TIPOS = ['Lapsus', 'Equivocación', 'Basado en reglas', 'De conocimiento'];
+const PANTALLAS = ['Inicio', 'Productos', 'Agregar producto', 'Ventas', 'Agregar venta', 'Ganancias', 'Perfil', 'Comprobantes', 'Otra'];
+const CLAVE = 'mercatab.pruebas', BORRADOR = 'mercatab.borrador';
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+let errores = [], tiempo = 0, inicio = null, intervalo = null;
+
+// SUS: impares (1,3,5,7,9) restan 1; pares restan la respuesta a 5; suma × 2,5
+const susPuntaje = r => r.reduce((s, v, i) => s + (i % 2 === 0 ? v - 1 : 5 - v), 0) * 2.5;
+const susTexto = p => p >= 85 ? 'excelente' : p >= 70 ? 'aceptable' : p >= 50 ? 'marginal' : 'inaceptable';
+const mmss = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${(s % 60).toFixed(1).padStart(4, '0')}`;
+
+$('#sus').innerHTML = SUS_Q.map((q, i) => `
+  <fieldset class="sus-p"><legend>${i + 1}. ${esc(q)}</legend>
+    <div class="escala">${[1, 2, 3, 4, 5].map(v => `<label><input type="radio" name="sus${i + 1}" value="${v}"><span>${v}</span></label>`).join('')}</div>
+  </fieldset>`).join('');
+
+function respuestasSus() { return SUS_Q.map((_, i) => { const r = $(`input[name="sus${i + 1}"]:checked`); return r ? Number(r.value) : null; }); }
+
+function recalcular() {
+  const pasos = $$('.paso:checked').length;
+  $('#efectividad').textContent = `${pasos / 5 * 100} %`;
+  const r = respuestasSus(), faltan = r.filter(v => v === null).length;
+  if (faltan) { $('#sus-puntaje').textContent = '—'; $('#sus-texto').textContent = `Faltan ${faltan} respuestas`; }
+  else { const p = susPuntaje(r); $('#sus-puntaje').textContent = String(p); $('#sus-texto').textContent = `(${susTexto(p)})`; }
+}
+
+function pintarErrores() {
+  $('#errores').innerHTML = errores.map((e, i) => `
+    <div class="error-fila">
+      <div class="campo"><label for="e-min-${i}">Minuto</label><input id="e-min-${i}" data-i="${i}" data-c="min" type="text" value="${esc(e.min)}" autocomplete="off"></div>
+      <div class="campo"><label for="e-pan-${i}">Pantalla</label><select id="e-pan-${i}" data-i="${i}" data-c="pantalla" autocomplete="off">${PANTALLAS.map(p => `<option${p === e.pantalla ? ' selected' : ''}>${p}</option>`).join('')}</select></div>
+      <div class="campo ancho"><label for="e-que-${i}">Qué pasó o qué dijo</label><input id="e-que-${i}" data-i="${i}" data-c="que" type="text" value="${esc(e.que)}" autocomplete="off"></div>
+      <div class="campo"><label for="e-tip-${i}">Tipo</label><select id="e-tip-${i}" data-i="${i}" data-c="tipo" autocomplete="off">${TIPOS.map(t => `<option${t === e.tipo ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
+      <div class="campo"><button type="button" class="peligro" data-quitar="${i}" aria-label="Quitar el error ${i + 1}">Quitar</button></div>
+    </div>`).join('');
+}
+
+function recoger() {
+  const d = { fecha: new Date().toISOString(), tiempo_tarea_s: Number(tiempo.toFixed(1)), errores: errores.map(e => ({ ...e })) };
+  $$('#f input[name], #f select[name], #f textarea[name]').forEach(el => {
+    if (el.type === 'radio') { if (el.checked) d[el.name] = el.value; }
+    else d[el.name] = el.type === 'checkbox' ? el.checked : el.value;
+  });
+  d.pasos = $$('.paso:checked').length; d.efectividad = d.pasos / 5 * 100;
+  const r = respuestasSus(); d.sus = r;
+  d.sus_puntaje = r.includes(null) ? '' : susPuntaje(r);
+  return d;
+}
+
+function restaurar(d) {
+  $$('#f input[name], #f select[name], #f textarea[name]').forEach(el => {
+    if (!(el.name in d) && el.type !== 'radio') return;
+    if (el.type === 'radio') el.checked = d[el.name] === el.value;
+    else if (el.type === 'checkbox') el.checked = !!d[el.name];
+    else el.value = d[el.name] ?? '';
+  });
+  errores = d.errores || []; tiempo = d.tiempo_tarea_s || 0;
+  $('#reloj').textContent = mmss(tiempo); pintarErrores(); recalcular();
+}
+
+const borrador = () => localStorage.setItem(BORRADOR, JSON.stringify(recoger()));
+const guardados = () => JSON.parse(localStorage.getItem(CLAVE) || '[]');
+
+function pintarGuardados() {
+  $('#guardados').innerHTML = guardados().map(d => `<tr><th scope="row">${esc(d.codigo || '(sin código)')}</th><td>${d.efectividad} %</td><td>${d.tiempo_tarea_s}</td><td>${d.errores.length}</td><td>${d.sus_puntaje === '' ? '—' : d.sus_puntaje}</td></tr>`).join('') || '<tr><td colspan="5">Todavía no hay participantes guardados.</td></tr>';
+}
+
+function csv() {
+  const cab = ['codigo', 'fecha', 'edad', 'ocupacion', 'perfil', 'dispositivo', 'contexto', 'consentimiento', 'tiempo_tarea_s', 'pasos', 'efectividad_pct', 'n_errores',
+    ...SUS_Q.map((_, i) => 'sus' + (i + 1)), 'sus_puntaje', 'sus_interpretacion', 'entrevista_dificil', 'entrevista_cambiaria', 'entrevista_confianza', 'exploracion', 'errores_detalle'];
+  const celda = v => `"${String(v ?? '').replace(/"/g, '""')}"`;
+  const filas = guardados().map(d => {
+    const contexto = ['una_mano', 'teclado', 'zoom', 'lector', 'ninguno'].filter(k => d['ctx_' + k]).join(' + ');
+    const consent = [d.consent_verbal && 'verbal', d.consent_escrito && 'escrito'].filter(Boolean).join(' + ');
+    return [d.codigo, d.fecha, d.edad, d.ocupacion, d.perfil, d.dispositivo, contexto, consent, d.tiempo_tarea_s, d.pasos, d.efectividad, d.errores.length,
+      ...d.sus.map(v => v ?? ''), d.sus_puntaje, d.sus_puntaje === '' ? '' : susTexto(d.sus_puntaje), d.ent1, d.ent2, d.ent3, d.exploracion,
+      d.errores.map(e => `[${e.min}] ${e.pantalla}: ${e.que} (${e.tipo})`).join(' | ')].map(celda).join(',');
+  });
+  return '﻿' + [cab.map(celda).join(','), ...filas].join('\r\n');
+}
+
+function aviso(t) { const e = $('#estado-guardar'); e.textContent = t; }
+
+// Reloj
+function tic() { tiempo = (performance.now() - inicio) / 1000; $('#reloj').textContent = mmss(tiempo); }
+$('#b-inicio').onclick = () => { inicio = performance.now() - tiempo * 1000; intervalo = setInterval(tic, 100); $('#b-inicio').disabled = true; $('#b-fin').disabled = false; $('#estado-reloj').textContent = 'Cronómetro en marcha.'; };
+$('#b-fin').onclick = () => { clearInterval(intervalo); tic(); $('#b-inicio').disabled = false; $('#b-fin').disabled = true; $('#estado-reloj').textContent = `Tarea detenida en ${mmss(tiempo)} (${tiempo.toFixed(1)} s).`; borrador(); };
+$('#b-cero').onclick = () => { clearInterval(intervalo); tiempo = 0; $('#reloj').textContent = mmss(0); $('#b-inicio').disabled = false; $('#b-fin').disabled = true; $('#estado-reloj').textContent = 'Reloj en cero.'; borrador(); };
+
+// Errores
+$('#b-error').onclick = () => { errores.push({ min: mmss(tiempo).slice(0, 5), pantalla: 'Inicio', que: '', tipo: TIPOS[0] }); pintarErrores(); borrador(); $(`#e-que-${errores.length - 1}`).focus(); };
+$('#errores').addEventListener('input', e => { const i = e.target.dataset.i; if (i !== undefined) { errores[i][e.target.dataset.c] = e.target.value; borrador(); } });
+$('#errores').addEventListener('click', e => { const b = e.target.closest('[data-quitar]'); if (b) { errores.splice(Number(b.dataset.quitar), 1); pintarErrores(); borrador(); $('#b-error').focus(); } });
+
+$('#f').addEventListener('input', () => { recalcular(); borrador(); });
+$('#b-guardar').onclick = () => {
+  const d = recoger();
+  if (!d.codigo.trim()) { aviso('Escribe el código del participante antes de guardar.'); $('#codigo').focus(); return; }
+  const lista = guardados().filter(x => x.codigo !== d.codigo); lista.push(d);
+  localStorage.setItem(CLAVE, JSON.stringify(lista)); pintarGuardados(); aviso(`Guardado: ${d.codigo}. Ya puedes iniciar con otro participante.`);
+};
+$('#b-nuevo').onclick = () => {
+  if (!confirm('¿Limpiar la hoja para un nuevo participante? Lo que no hayas guardado se pierde.')) return;
+  clearInterval(intervalo); $('#f').reset(); errores = []; tiempo = 0; $('#reloj').textContent = mmss(0);
+  $('#b-inicio').disabled = false; $('#b-fin').disabled = true; pintarErrores(); recalcular(); localStorage.removeItem(BORRADOR); $('#codigo').focus();
+};
+$('#b-csv').onclick = () => {
+  if (!guardados().length) { aviso('Todavía no hay participantes guardados.'); return; }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv()], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'pruebas_mercatab_pa3.csv'; a.click(); URL.revokeObjectURL(a.href); aviso('CSV descargado.');
+};
+$('#b-imprimir').onclick = () => window.print();
+$('#b-borrar').onclick = () => { if (confirm('¿Borrar todos los participantes guardados? No se puede deshacer.')) { localStorage.removeItem(CLAVE); pintarGuardados(); aviso('Se borraron los participantes guardados.'); } };
+$('.saltar').onclick = e => { e.preventDefault(); $('#principal').focus(); };
+
+try { const b = localStorage.getItem(BORRADOR); if (b) restaurar(JSON.parse(b)); } catch (e) { /* borrador dañado: se empieza en blanco */ }
+pintarErrores(); recalcular(); pintarGuardados();
+</script>
+</body>
+</html>

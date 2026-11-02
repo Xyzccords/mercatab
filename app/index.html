@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MercaTab</title>
+<meta name="description" content="Ventas, productos y ganancias para bodegas y puestos de abarrotes. Funciona sin internet.">
+<meta name="theme-color" content="#7B4A2D">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/icono.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<a class="saltar" href="#contenido" id="saltar">Ir al contenido principal</a>
+
+<div class="app">
+  <header class="cabecera">
+    <a class="marca" href="#/inicio" aria-label="MercaTab, ir al inicio">
+      <svg class="marca__logo" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path d="M4 14 8 5h24l4 9z" fill="#7B4A2D"/>
+        <path d="M4 14h8v3a4 4 0 0 1-8 0zM12 14h8v3a4 4 0 0 1-8 0zM20 14h8v3a4 4 0 0 1-8 0zM28 14h8v3a4 4 0 0 1-8 0z" fill="#F4A27A"/>
+        <path d="M7 22h26v13H7z" fill="#7B4A2D"/>
+        <path d="M16 35V26h8v9z" fill="#F5ECE8"/>
+      </svg>
+      <span class="marca__nombre">MercaTab</span>
+    </a>
+    <p class="red" id="red" role="status"></p>
+  </header>
+
+  <main id="contenido" tabindex="-1"></main>
+
+  <footer class="pie">
+    <p>MercaTab · avance académico PA3, Interacción Hombre-Máquina, UTP. La conexión con SUNAT es una simulación: no tiene validez tributaria.</p>
+  </footer>
+
+  <nav class="barra" aria-label="Principal" id="barra"></nav>
+</div>
+
+<dialog id="modal" aria-labelledby="modal-titulo"></dialog>
+<div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+
+<script defer src="js/iconos.js"></script>
+<script defer src="js/ui.js"></script>
+<script defer src="js/datos.js"></script>
+<script defer src="js/sunat.js"></script>
+<script defer src="js/vistas.js"></script>
+<script defer src="js/app.js"></script>
+</body>
+</html>

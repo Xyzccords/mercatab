@@ -1,0 +1,23 @@
+{
+ "pantalla": "Productos",
+ "axe": {
+  "violations": [],
+  "pasadas": 44,
+  "incompletas": [],
+  "noAplica": 45
+ },
+ "propio": {
+  "chicos": [],
+  "minFuente": 14,
+  "dondeMin": "MercaTab · avance académico PA",
+  "sinAlt": 0,
+  "conAlt": 4,
+  "iconosBoton": 0,
+  "camposTotal": 1,
+  "sinLabel": 0,
+  "sinAuto": 0,
+  "puntos": "header:1 nav:1 main:1 footer:1",
+  "h1": 1,
+  "lang": "es"
+ }
+}

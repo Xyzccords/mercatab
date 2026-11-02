@@ -1,0 +1,20 @@
+OK    13.53:1 (mín 4.5)  Texto principal sobre crema
+OK    15.75:1 (mín 4.5)  Texto principal sobre blanco
+OK     7.20:1 (mín 4.5)  Texto secundario sobre crema
+OK     8.38:1 (mín 4.5)  Texto secundario sobre blanco
+OK     7.34:1 (mín 4.5)  Botón primario: blanco sobre marrón
+OK     6.31:1 (mín 4.5)  Botón secundario: marrón sobre crema
+OK     6.54:1 (mín 4.5)  Botón peligro: blanco sobre rojo
+OK     6.54:1 (mín 4.5)  Error: rojo sobre blanco
+OK     5.59:1 (mín 4.5)  Error: rojo sobre fondo de error
+OK     7.72:1 (mín 4.5)  Menú activo: tinta sobre durazno
+OK     5.67:1 (mín 4.5)  Etiqueta aceptado: verde sobre verde claro
+OK     8.79:1 (mín 4.5)  Etiqueta pendiente: marrón oscuro sobre aviso
+OK    15.75:1 (mín 4.5)  Aviso emergente: blanco sobre tinta
+OK     4.36:1 (mín 3.0)  Borde de campo sobre blanco (componente)
+OK    10.79:1 (mín 3.0)  Barra ganancia sobre blanco (gráfico)
+OK     5.12:1 (mín 3.0)  Barra inversión sobre blanco (gráfico)
+OK     2.11:1 (mín 1.5)  Barra ganancia contra barra inversión
+OK     8.63:1 (mín 3.0)  Foco azul sobre crema (componente)
+
+18/18 pares correctos

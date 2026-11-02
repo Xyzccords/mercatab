@@ -1,0 +1,244 @@
+[
+ {
+  "pantalla": "Inicio",
+  "ruta": "inicio",
+  "axe": {
+   "violations": [],
+   "pasadas": 37,
+   "incompletas": [],
+   "noAplica": 52
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 0,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Productos",
+  "ruta": "productos",
+  "axe": {
+   "violations": [],
+   "pasadas": 44,
+   "incompletas": [],
+   "noAplica": 45
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 4,
+   "iconosBoton": 0,
+   "camposTotal": 1,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Agregar producto",
+  "ruta": "productos/nuevo",
+  "axe": {
+   "violations": [],
+   "pasadas": 41,
+   "incompletas": [],
+   "noAplica": 48
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 5,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Ventas",
+  "ruta": "ventas",
+  "axe": {
+   "violations": [],
+   "pasadas": 42,
+   "incompletas": [],
+   "noAplica": 47
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 2,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Agregar venta",
+  "ruta": "ventas/nueva",
+  "axe": {
+   "violations": [],
+   "pasadas": 41,
+   "incompletas": [],
+   "noAplica": 48
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 2,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Ganancias",
+  "ruta": "ganancias",
+  "axe": {
+   "violations": [],
+   "pasadas": 45,
+   "incompletas": [
+    "color-contrast"
+   ],
+   "noAplica": 44
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "Ventas",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 0,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Perfil",
+  "ruta": "perfil",
+  "axe": {
+   "violations": [],
+   "pasadas": 37,
+   "incompletas": [],
+   "noAplica": 52
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 0,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Iniciar sesión",
+  "ruta": "login",
+  "axe": {
+   "violations": [],
+   "pasadas": 41,
+   "incompletas": [],
+   "noAplica": 48
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 2,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Crear cuenta",
+  "ruta": "registro",
+  "axe": {
+   "violations": [],
+   "pasadas": 41,
+   "incompletas": [],
+   "noAplica": 48
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 4,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ },
+ {
+  "pantalla": "Comprobantes",
+  "ruta": "comprobantes",
+  "axe": {
+   "violations": [],
+   "pasadas": 34,
+   "incompletas": [],
+   "noAplica": 55
+  },
+  "propio": {
+   "chicos": [],
+   "minFuente": 14,
+   "dondeMin": "MercaTab · avance académico PA",
+   "sinAlt": 0,
+   "conAlt": 0,
+   "iconosBoton": 0,
+   "camposTotal": 0,
+   "sinLabel": 0,
+   "sinAuto": 0,
+   "puntos": "header:1 nav:1 main:1 footer:1",
+   "h1": 1,
+   "lang": "es"
+  }
+ }
+]

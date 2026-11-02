@@ -1,0 +1,27 @@
+OK    El primer Tab cae en 'Ir al contenido principal'
+OK    El skip link lleva el foco a <main>
+OK    Formulario vacío muestra resumen de errores
+OK    El foco pasa al resumen de errores
+OK    Error del precio con texto (no solo color)
+OK    Aparece el modal ¡Producto registrado!
+OK    Esc cierra el modal y vuelve a la lista
+OK    Venta vacía pide al menos un producto
+OK    Cantidad mayor al stock muestra cuánto queda
+OK    El total se calcula al escribir
+OK    Factura sin RUC muestra error de RUC
+OK    Consultar SUNAT rellena la razón social
+OK    Venta registrada con comprobante F001-00000001
+OK    Con internet el comprobante queda aceptado
+OK    El comprobante calcula IGV 18 %
+OK    Interruptor de red tiene aria-checked=true
+OK    Aparece el aviso 'Sin conexión'
+OK    Sin internet la boleta queda pendiente
+OK    Al volver internet se envían los pendientes
+OK    Salir con cambios pide confirmar
+OK    Continuar editando se queda en el formulario
+OK    Con Tab se llega al botón Ganancias de la barra
+OK    Enter abre Ganancias y el foco pasa al título
+OK    El foco es visible (outline de 3 px)
+OK    Sin errores de JavaScript en toda la prueba
+
+25/25 verificaciones correctas

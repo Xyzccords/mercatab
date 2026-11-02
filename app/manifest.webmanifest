@@ -1,0 +1,10 @@
+{
+  "name": "MercaTab",
+  "short_name": "MercaTab",
+  "lang": "es",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#F5ECE8",
+  "theme_color": "#7B4A2D",
+  "icons": [{ "src": "img/icono.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

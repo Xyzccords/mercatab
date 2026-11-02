@@ -1,0 +1,23 @@
+{
+ "pantalla": "Ventas",
+ "axe": {
+  "violations": [],
+  "pasadas": 42,
+  "incompletas": [],
+  "noAplica": 47
+ },
+ "propio": {
+  "chicos": [],
+  "minFuente": 14,
+  "dondeMin": "MercaTab · avance académico PA",
+  "sinAlt": 0,
+  "conAlt": 0,
+  "iconosBoton": 0,
+  "camposTotal": 2,
+  "sinLabel": 0,
+  "sinAuto": 0,
+  "puntos": "header:1 nav:1 main:1 footer:1",
+  "h1": 1,
+  "lang": "es"
+ }
+}

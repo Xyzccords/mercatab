@@ -182,11 +182,13 @@ const Vistas = (() => {
       const hoy = new Date();
       const hace30 = new Date(); hace30.setDate(hoy.getDate() - 30);
       let desde = isoLocal(hace30), hasta = isoLocal(hoy);
+      const PASO = 15; // la lista es corta para que quien usa solo teclado llegue pronto a la barra de navegación
+      let mostrar = PASO;
       const filas = () => {
         const ini = new Date(desde + 'T00:00:00'), fin = new Date(hasta + 'T23:59:59');
         const lista = Datos.ventas().filter(v => { const f = new Date(v.fecha); return f >= ini && f <= fin; }).reverse();
         if (!lista.length) return '<div class="vacio"><p>No hay ventas en estas fechas.</p></div>';
-        return `<ul class="lista">${lista.slice(0, 40).map(v => `
+        return `<ul class="lista">${lista.slice(0, mostrar).map(v => `
           <li class="fila">
             <div class="fila__texto">
               <p class="fila__titulo">Venta n.º ${v.id}</p>
@@ -200,7 +202,7 @@ const Vistas = (() => {
                 : `<a class="boton boton--icono boton--sec" href="#/ventas/editar/${v.id}" aria-label="Editar venta ${v.id}">${icono('lapiz')}</a>
                    <button type="button" class="boton boton--icono boton--peligro" data-accion="eliminar" data-id="${v.id}" aria-label="Eliminar venta ${v.id}">${icono('papelera')}</button>`}
             </div>
-          </li>`).join('')}</ul>${lista.length > 40 ? `<p class="ayuda">Se muestran las 40 más recientes de ${lista.length}. Acota las fechas para ver otras.</p>` : ''}`;
+          </li>`).join('')}</ul><p class="ayuda">Mostrando ${Math.min(mostrar, lista.length)} de ${plural(lista.length, 'venta', 'ventas')}.</p>${lista.length > mostrar ? `<button type="button" class="boton boton--sec boton--bloque" data-accion="mas">Mostrar ${Math.min(PASO, lista.length - mostrar)} más</button>` : ''}`;
       };
       root.innerHTML = `
         ${encabezado('Ventas', { ic: 'ventas', accion: { href: '#/ventas/nueva', texto: 'Nueva venta' } })}
@@ -214,9 +216,18 @@ const Vistas = (() => {
         if (e.target.id === 'desde') desde = e.target.value || desde;
         else if (e.target.id === 'hasta') hasta = e.target.value || hasta;
         else return;
+        mostrar = PASO;
         $(root, '#resultado').innerHTML = filas();
       };
       root.onclick = async e => {
+        if (e.target.closest('[data-accion="mas"]')) {
+          mostrar += PASO;
+          $(root, '#resultado').innerHTML = filas();
+          const nuevos = root.querySelectorAll('#resultado .fila');
+          const primero = nuevos[mostrar - PASO] && nuevos[mostrar - PASO].querySelector('a, button');
+          if (primero) primero.focus();
+          return;
+        }
         const b = e.target.closest('[data-accion="eliminar"]');
         if (!b) return;
         const v = Datos.venta(Number(b.dataset.id));

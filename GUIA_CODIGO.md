@@ -72,7 +72,7 @@ Los RUC `20600000013` y similares y el DNI `12345678` **no son reales**: salen d
 
 ```bash
 # desde la carpeta ihm_pa3, con Python y Playwright instalados
-python tools/flujos.py        # 25 verificaciones de flujo y teclado
+python tools/flujos.py        # 28 verificaciones de flujo y teclado
 python tools/auditar.py       # axe-core en 10 pantallas + tamaño táctil, fuente, alt, labels
 python tools/contraste.py     # contraste de la paleta
 python tools/evidencias.py    # regenera capturas y fragmentos de código del informe

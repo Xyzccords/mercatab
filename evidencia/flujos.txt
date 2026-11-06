@@ -22,6 +22,9 @@ OK    Continuar editando se queda en el formulario
 OK    Con Tab se llega al botón Ganancias de la barra
 OK    Enter abre Ganancias y el foco pasa al título
 OK    El foco es visible (outline de 3 px)
+OK    Ventas muestra solo 15 al inicio
+OK    Mostrar más agrega 15 y el foco pasa a la primera venta nueva
+OK    Con Tab se llega a la barra de navegación en menos de 50 pulsaciones
 OK    Sin errores de JavaScript en toda la prueba
 
-25/25 verificaciones correctas
+28/28 verificaciones correctas

@@ -100,6 +100,18 @@ with sync_playwright() as p:
     pg.keyboard.press("Tab")
     verificar("El foco es visible (outline de 3 px)", pg.evaluate("parseFloat(getComputedStyle(document.activeElement).outlineWidth)") >= 3)
 
+    # --- Lista de ventas corta: la barra de navegación queda cerca con Tab
+    pg.goto(URL + "#/ventas"); pg.wait_for_selector("main h1:has-text('Ventas')")
+    verificar("Ventas muestra solo 15 al inicio", pg.locator("#resultado .fila").count() == 15, str(pg.locator("#resultado .fila").count()))
+    pg.click("[data-accion=mas]")
+    verificar("Mostrar más agrega 15 y el foco pasa a la primera venta nueva", pg.locator("#resultado .fila").count() == 30 and pg.evaluate("document.activeElement.closest('.fila') === document.querySelectorAll('#resultado .fila')[15]"))
+    pg.goto(URL + "#/ventas"); pg.wait_for_selector("#resultado .fila"); pg.reload(); pg.wait_for_selector("#resultado .fila")
+    pasos = 0
+    for _ in range(80):
+        pg.keyboard.press("Tab"); pasos += 1
+        if pg.evaluate("document.activeElement.dataset && document.activeElement.dataset.nav") == "inicio": break
+    verificar("Con Tab se llega a la barra de navegación en menos de 50 pulsaciones", pasos < 50, str(pasos))
+
     verificar("Sin errores de JavaScript en toda la prueba", not errores, str(errores))
     nav.close()
 

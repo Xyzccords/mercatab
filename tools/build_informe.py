@@ -254,7 +254,7 @@ P("La consigna pide implementar al menos 8 de 11 criterios. Se implementaron los
 CRIT = [
  (1, "Alt text descriptivo en todas las imágenes", "1.1.1 (A)", "Fotos de productos en Productos y en el formulario", "axe image-alt: 0 fallos en 10 pantallas; 0 imágenes sin alt"),
  (2, "Contraste de texto mínimo 4.5:1", "1.4.3 (AA)", "Paleta global (variables CSS)", "Cálculo de 18 pares con tools/contraste.py y regla color-contrast de axe"),
- (3, "Navegación completa por teclado", "2.1.1 (A)", "Toda la app: enlaces y botones nativos, diálogo con <dialog>", "Prueba de flujos con teclado: 25 verificaciones correctas"),
+ (3, "Navegación completa por teclado", "2.1.1 (A)", "Toda la app: enlaces y botones nativos, diálogo con <dialog>", "Prueba de flujos con teclado: 28 verificaciones correctas"),
  (4, "Foco visible", "2.4.7 (AA)", "Todos los elementos interactivos", "Contorno de 3 px comprobado con Tab; contraste del foco 8,63:1"),
  (5, "ARIA labels en íconos sin texto", "4.1.2 (A)", "Editar, eliminar, volver, mostrar contraseña, quitar producto", "axe button-name y link-name: 0 fallos; 0 botones sin nombre"),
  (6, "Áreas táctiles de 44×44 px", "2.5.5 (AA)", "Botones, enlaces, campos y barra de navegación", "Medición del tamaño de cada elemento: 0 menores de 44 px"),
@@ -312,7 +312,8 @@ tabla([["Hallazgo", "Cómo se detectó", "Corrección"],
        ["Dos enlaces dentro de frases (“Regístrate”, “Inicia sesión”) medían 20 px de alto", "Medición de tamaño táctil", "Pasaron a 44 px con display inline-flex"],
        ["La pantalla Ventas desbordaba a 320 px (scroll horizontal)", "Prueba de reflow a 320 y 640 px", "Filtros de fecha con auto-fit y min-width 0"],
        ["Una pantalla heredaba los manejadores de eventos de la anterior y activaba el aviso de cambios sin guardar", "Generación de evidencias: Ganancias mostraba el aviso", "app.js limpia los manejadores al cambiar de pantalla"],
-       ["Texto blanco sobre el botón verde del Figma: 2,83:1", "Medición de contraste en el PA2", "Botón de contorno marrón: 6,31:1"]], [6.4, 4.8, 4.8], 9.5)
+       ["Texto blanco sobre el botón verde del Figma: 2,83:1", "Medición de contraste en el PA2", "Botón de contorno marrón: 6,31:1"],
+       ["En Ventas la barra de navegación quedaba después de unos 80 botones: con solo teclado había que pulsar Tab decenas de veces", "Grabación del video demo con teclado", "Lista de 15 ventas con botón «Mostrar 15 más»; la barra se alcanza en menos de 50 pulsaciones (probado)"]], [6.4, 4.8, 4.8], 9.5)
 P("Una regla de axe quedó “por revisar a mano” en Ganancias (color-contrast sobre el gráfico). Se verificó con el cálculo propio: texto tinta sobre blanco 15,75:1.", "j", 11)
 H("5.2 Pruebas situacionales técnicas", 2)
 P("Sin reemplazar la prueba con personas, se comprobó que el sistema funciona **solo con teclado** (sección 4.3), que no hay scroll horizontal a **320 px** ni a **640 px** en 12 pantallas "
@@ -369,7 +370,7 @@ P("Satisfacción (SUS): {{respuestas del cuestionario SUS de U1, U2 y U3, con pu
 # ============ 7. CONCLUSIONES ============
 H("7. Conclusiones DCU")
 P("**El ciclo.** El PA1 definió el problema, los perfiles y la tarea. El PA2 llevó el diseño a un prototipo de alta fidelidad y lo probó con tres personas, con 12 errores y dudas registrados. "
-  "El PA3 convirtió esos hallazgos en un sistema funcional que cumple los 11 criterios de accesibilidad de la guía y pasa 25 verificaciones de flujo y teclado y la auditoría de axe sin violaciones.", "j")
+  "El PA3 convirtió esos hallazgos en un sistema funcional que cumple los 11 criterios de accesibilidad de la guía y pasa 28 verificaciones de flujo y teclado y la auditoría de axe sin violaciones.", "j")
 P("**¿Resolvió el problema inicial?** En lo técnico sí: el sistema permite registrar una venta, emitir un comprobante simulado y ver la ganancia sin internet y sin mouse. "
   "Las tres personas que lo probaron completaron la tarea sin ayuda, en unos 23 segundos en promedio y con una sola duda, y las tres dijeron que lo usarían o que confiarían en él. "
   "La satisfacción medida con el SUS queda por completar. {{Resultado del SUS}}", "j")

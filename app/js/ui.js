@@ -24,9 +24,10 @@ const UI = (() => {
             ${botones.map((b, i) => `<button type="button" class="boton ${b.clase || ''}" data-i="${i}">${esc(b.texto)}</button>`).join('')}
           </div>
         </div>`;
-      const cerrar = valor => { d.onclick = null; d.oncancel = null; d.close(); resolve(valor); };
+      const cerrar = valor => { d.onclick = null; d.oncancel = null; d.close(); d.removeAttribute('aria-labelledby'); resolve(valor); };
       d.onclick = e => { const b = e.target.closest('[data-i]'); if (b) cerrar(botones[+b.dataset.i].valor); };
       d.oncancel = e => { e.preventDefault(); cerrar(botones[escape].valor); };
+      d.setAttribute('aria-labelledby', 'modal-titulo'); // solo mientras hay un título al que apuntar
       d.showModal();
       d.querySelector(`[data-i="${foco}"]`).focus();
     });

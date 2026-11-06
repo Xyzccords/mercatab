@@ -112,6 +112,11 @@ with sync_playwright() as p:
         if pg.evaluate("document.activeElement.dataset && document.activeElement.dataset.nav") == "inicio": break
     verificar("Con Tab se llega a la barra de navegación en menos de 50 pulsaciones", pasos < 50, str(pasos))
 
+    rotas = []
+    for r in ["inicio", "ventas", "ventas/nueva", "productos", "productos/nuevo", "ganancias", "perfil", "login", "registro", "comprobantes"]:
+        pg.goto(URL + "#/" + r); pg.wait_for_selector("main h1")
+        rotas += pg.evaluate("""() => [...document.querySelectorAll('[aria-labelledby],[aria-describedby],[aria-controls]')].flatMap(e => ['aria-labelledby','aria-describedby','aria-controls'].flatMap(a => (e.getAttribute(a)||'').split(/\s+/).filter(Boolean).filter(id => !document.getElementById(id))))""")
+    verificar("Ninguna referencia ARIA apunta a un id que no existe (error de WAVE)", not rotas, str(rotas))
     verificar("Sin errores de JavaScript en toda la prueba", not errores, str(errores))
     nav.close()
 

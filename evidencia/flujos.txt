@@ -25,6 +25,7 @@ OK    El foco es visible (outline de 3 px)
 OK    Ventas muestra solo 15 al inicio
 OK    Mostrar más agrega 15 y el foco pasa a la primera venta nueva
 OK    Con Tab se llega a la barra de navegación en menos de 50 pulsaciones
+OK    Ninguna referencia ARIA apunta a un id que no existe (error de WAVE)
 OK    Sin errores de JavaScript en toda la prueba
 
-28/28 verificaciones correctas
+29/29 verificaciones correctas

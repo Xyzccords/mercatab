@@ -279,7 +279,7 @@ const Vistas = (() => {
           <form id="f" novalidate>
             ${lineas.map(lineaHTML).join('')}
             <button type="button" class="boton boton--sec boton--bloque" data-accion="mas">${icono('mas')}<span>Agregar producto</span></button>
-            <p class="total"><span>Total</span><strong id="total" aria-live="polite">${dinero(total())}</strong></p>
+            <div class="total"><span>Total</span><strong id="total" aria-live="polite">${dinero(total())}</strong></div>
             ${original ? '' : `
             <fieldset class="opciones">
               <legend>Comprobante electrónico</legend>

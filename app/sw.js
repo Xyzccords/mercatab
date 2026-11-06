@@ -1,5 +1,5 @@
 // Guarda los archivos de la app para que abra sin internet.
-const CACHE = 'mercatab-v1';
+const CACHE = 'mercatab-v2';
 const ARCHIVOS = [
   './', 'index.html', 'manifest.webmanifest', 'css/estilos.css',
   'js/iconos.js', 'js/ui.js', 'js/datos.js', 'js/sunat.js', 'js/vistas.js', 'js/app.js',
